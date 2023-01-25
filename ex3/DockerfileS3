@@ -1,0 +1,16 @@
+FROM python:3.9-slim-buster
+
+# Set the working directory
+WORKDIR /app
+
+# Install the dependencies
+RUN pip install --no-cache-dir Flask requests
+
+# Copy the application code into the container
+COPY s3.py .
+
+# Expose the port on which the server will run
+EXPOSE 8080
+
+# Start the server
+CMD ["python3", "s3.py"]
