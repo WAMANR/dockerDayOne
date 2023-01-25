@@ -8,12 +8,14 @@ global server2
 
 @app.route('/setServer1', methods=['GET'])
 def setServer1():
+    global server1
     server1 = "http://localhost:" + request.data.decode("utf-8") + "/ping"
     print("Get server 1 url => " + server1)
     return "ok"
 
 @app.route('/setServer2', methods=['GET'])
 def setServer2():
+    global server2
     server2 = "http://localhost:" + request.data.decode("utf-8") + "/pong"
     print("Get server 2 url => " + server2)
     return "ok"
