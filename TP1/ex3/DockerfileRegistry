@@ -5,12 +5,14 @@ WORKDIR /app
 
 # Install the dependencies
 RUN pip install --no-cache-dir Flask requests
+RUN apt-get -y update; apt-get -y install curl
+
 
 # Copy the application code into the container
-COPY s3.py .
+COPY registry.py .
 
 # Expose the port on which the server will run
 EXPOSE 8080
 
 # Start the server
-CMD ["python3", "s3.py"]
+CMD ["python3" ,"-u", "registry.py"]

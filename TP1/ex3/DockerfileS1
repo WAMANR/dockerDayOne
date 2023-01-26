@@ -5,6 +5,7 @@ WORKDIR /app
 
 # Install the dependencies
 RUN pip install --no-cache-dir Flask requests
+RUN apt-get -y update; apt-get -y install curl
 
 # Copy the application code into the container
 COPY s1.py .
@@ -13,4 +14,4 @@ COPY s1.py .
 EXPOSE 4567
 
 # Start the server
-CMD ["python3", "s1.py"]
+CMD ["python3" ,"-u", "s1.py"]
