@@ -1,0 +1,35 @@
+version: '3'
+services:
+  registry:
+    image: registry
+    restart: always
+    environment:
+      - HOST=registry
+      - PORT=8080
+
+  broker:
+    image: broker
+    restart: always
+    environment:
+      - HOST=broker
+      - PORT=1111
+      - REGISTRY=http://registry:8080
+      - ADRESS=http://broker
+
+  s1:
+    image: s1
+    restart: always
+    environment:
+      - HOST=s1
+      - PORT=4567
+      - REGISTRY=http://registry:8080
+      - ADRESS=http://s1
+  s2:
+    image: s2
+    restart: always
+    environment:
+      - HOST=s2
+      - PORT=5372
+      - REGISTRY=http://registry:8080
+      - ADRESS=http://s2
+    
