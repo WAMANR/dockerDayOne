@@ -20,7 +20,8 @@ J'ai dans la liste workers du planner un deuxième worker avec un port différen
 
 * Exercice 3: 
 
--
+-On remarque des erreurs car des mult sont envoyées au worker add et inversement.
+-Pour corriger cela, j'ai ajouté une condition qui vérifie si le type de tache correspond au worker disponible.
 
 ## Auteur
 * **Adil Rouichi** _alias_ [@WAMANR](https://github.com/WAMANR)
