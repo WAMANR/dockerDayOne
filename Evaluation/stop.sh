@@ -1,5 +1,5 @@
 #Containers stop
-docker stop planner worker0 worker1
-docker rm planner worker0 worker1
+docker stop planner workerAdd workerMult
+docker rm planner workerAdd workerMult
 #Network stop
 docker network rm dockerNetwork
