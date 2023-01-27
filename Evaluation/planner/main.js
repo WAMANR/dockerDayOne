@@ -12,10 +12,19 @@ const args = () => ({ a: randInt(0, 40), b: randInt(0, 40) })
 const generateTasks = (i) =>
   new Array(i).fill(1).map((_) => ({ type: taskType(), args: args() }))
 
-let workers = [
-  { url: 'http://workerAdd:8080', id: '0', type: 'add'},
-  { url: 'http://workerMult:8081', id: '1', type: 'mult'}
-]
+let envWorkersString = process.env.WORKERS.substring(1)
+let envWorkers = envWorkersString.split(";")
+let workers1 = []
+envWorkers.forEach(element => {
+  workers1.push(element.split(","))
+});
+let workers = []
+let i = 1
+workers1.forEach(element => {
+  workers.push({url: `http://worker${i}:${element[0]}`, id:`${i}`, type: `${element[1]}`})
+  i++
+});
+
 
 const app = express()
 app.use(express.json())
@@ -73,10 +82,15 @@ const sendTask = async (worker, task) => {
 
 const main = async () => {
   console.log(tasks)
+  console.log("string : " + envWorkersString)
+  workers.forEach(element => {
+    console.log(element)
+  });
+
   while (taskToDo > 0) {
     await wait(100)
     if(workers.length === 0 || tasks.length ===0) continue
-    availableWorkers = workers.filter((x) => x.type == tasks[0].type) 
+    availableWorkers = workers.filter((x) => x.type == tasks[0].type || x.type == "gen") 
     if (availableWorkers.length === 0) continue
     sendTask(availableWorkers[0], tasks[0])
   }
