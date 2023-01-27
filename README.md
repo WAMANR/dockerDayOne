@@ -18,6 +18,10 @@ De plus, j'ai ajouté un worker dans la variable workers du planner.
 
 J'ai dans la liste workers du planner un deuxième worker avec un port différent. J'ai, dans le run.sh, lancé un deuxième worker avec le nom et le port différent indiqué dans le planner. Les deux effectuent deux taches chacun.
 
+* Exercice 3: 
+
+-
+
 ## Auteur
 * **Adil Rouichi** _alias_ [@WAMANR](https://github.com/WAMANR)
 
