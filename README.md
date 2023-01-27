@@ -4,8 +4,8 @@ Ce repository comprends le Tp1, le Tp2 ainsi que le devoir de fin de semaine pou
 
 ## Fabriqué avec
 
-* [Docker](http://materializecss.com) - Conteneurisation du projet
-* [Visual Studio code](https://atom.io/) - Editeur de textes
+* [Docker](https://www.docker.com/) - Conteneurisation du projet
+* [Visual Studio code](https://code.visualstudio.com/) - Editeur de textes
 
 
 ## Auteur
